@@ -2,17 +2,16 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Validation\Rules;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserStoreRequest extends FormRequest
+class StoreCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,9 +22,7 @@ class UserStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string', 'required', 'max:255'],
-            'email' => ['email', 'required', 'unique:users,email'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            //
         ];
     }
 }

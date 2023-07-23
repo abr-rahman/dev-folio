@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminLoginStoreRequest;
 use App\Models\User;
 use App\Service\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\UserStoreRequest;
 use App\Providers\RouteServiceProvider;
 
 class UserController extends Controller
@@ -34,7 +34,7 @@ class UserController extends Controller
         return view('user.form');
     }
 
-    public function store(UserStoreRequest $request)
+    public function store(AdminLoginStoreRequest $request)
     {
         $this->userService->store($request->validated());
         return redirect(RouteServiceProvider::HOME);
